@@ -5,6 +5,9 @@ date: "1/10/2019"
 output: html_document
 ---
 
+#**Summary stats for 3 files**
+
+#### Please refer to the original code here: https://github.com/peterwu19881230/datasciencecoursera/blob/master/Capstone/word_stats.Rmd
 ```{r,echo=FALSE, message=F}
 library(stringr) ##load to use the str_extract()
 library(tidyverse)
@@ -58,8 +61,7 @@ load("txtObjs.RData")
 
 ```
 
-# Do summary statistics for 3 different text files.
-### Please refer to the original code here: 
+# <br/> Summary statistics for 3 different text files.
 ```{r,tidy=T,cache=T,echo=FALSE, message=F,fig.width=13, fig.height=7}
 ##Function to do word count
 count_word=function(txt) { sum(stringr::str_count(txt,"[a-zA-Z]+")) }
@@ -132,6 +134,8 @@ load("ngram_tabs.RData")
 
 ```
 
+
+
 ```{r,tidy=T,echo=FALSE, message=F,fig.width=14, fig.height=7}
 #barplot + wordcloud showing frequency of word usage
 par(mfrow=c(1,2))
@@ -148,8 +152,10 @@ par(mfrow=c(1,2))
 barplot(three_gram_tab[[2]][1:10],names.arg=three_gram_tab[[1]][1:10],main="three_gram - Frequency of words")
 set.seed(1)
 wordcloud(three_gram_tab[[1]][1:100],freq=three_gram_tab[[2]][1:100],colors=brewer.pal(10, "Paired"))
-
-
 ```
 
-
+#Proposal
+#### I propose to use the above model built to predict the next word upon entry. The shiny app to be built will include a text box that allows user to enter their favorite text and show what's the next word. If there is no prediction, the ouput will show "no predicted result available" 
+```{r,tidy=T,echo=FALSE, message=F,fig.width=14, fig.height=7}
+#This is just to make the above sentences properly wrapped
+```
