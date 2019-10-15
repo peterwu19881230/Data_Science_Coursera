@@ -1,0 +1,60 @@
+---
+title: "Data Science Capstone Final Report - Text mining"
+author: "Peter Wu"
+date: "1/22/2019"
+output: ioslides_presentation
+---
+
+
+## Next word prediction
+
+From 3 files (en_US.blogs.txt, en_US.news.txt, en_US.twitter.txt) I have built ngram models that would predict the next word given an entry of a sentence. 4 options will be provided in the order of their frequency based on ngram models. If there are less than 4 or no predicted result, NA value will be displayed.
+<br/>
+<br/>
+```{r, out.width='70%', fig.align='center',echo=F,message=F}
+knitr::include_graphics('/Users/peterwu/TAMU Google Drive/My Drive/Coursera Data Science/Capstone/ngram_diagram.png')
+```
+<br/>
+<font size="4">from: https://goo.gl/images/mQMt5x</font>
+
+## Approaches
+
+- <b>Step 1</b> 
+<font size="5">Multiple ngram tables (1-,2-,3- and 4-grams) were built as dictionaries and stored as .RData files (Due to performance issue, only ~10% of the corpus were used)</font>
+
+- <b>Step 2</b>  
+<font size="5">Users are able to enter a sentence for prediction. Predictions will be based on the last few words.</font>
+
+- <b>Step 3</b> 
+<font size="5">Shinny app was built by server.R and ui.R and deployed to Rpubs here: https://peterwu.shinyapps.io/capstoneapp/</font>
+
+## Brief demo
+```{r, out.width='110%', fig.align='center',echo=F,message=F}
+knitr::include_graphics('/Users/peterwu/TAMU Google Drive/My Drive/Coursera Data Science/Capstone/demo_slide_1.png')
+```
+
+
+
+## Brief demo
+```{r, out.width='110%', fig.align='center',echo=F,message=F}
+knitr::include_graphics('/Users/peterwu/TAMU Google Drive/My Drive/Coursera Data Science/Capstone/demo_slide_2.png')
+```
+
+
+
+
+## Discussion
+
+<b>1. Accuracy:</b></br> 
+<font size="3.8">Although I am only using 10% of the corpus, frequently used words can be easily predicted.</font>
+
+<b>2. Performance:</b></br> 
+<font size="3.8">the interface is pretty quick and responsive. Usually the results are returned witin 0.5 seconds.</font>
+
+<b>3. Future work:</b></br> 
+<font size="3.8">(a) If the next word prediction involves context given by words that are far away from the last few words, ngram will fail. It might be impractical to build ngram models with large n, due to its heavy computational burden. POS tagging (https://en.wikipedia.org/wiki/Part-of-speech_tagging) might be able to solve this problem.</font>
+
+<font size="3.8">(b) If no results can be found from 2,3,4 gram models, Should the most frequent words from 1 gram be returned? I haven't included that in my App, but I think it is debatable. In addition, Smoothing might be used to deal with words that never appear in the corpus.</font>
+
+<font size="3.8">(c) The app can be made to store user entry and regenerate personalized corpus so that is even more accurate based on personal history.</font>
+
