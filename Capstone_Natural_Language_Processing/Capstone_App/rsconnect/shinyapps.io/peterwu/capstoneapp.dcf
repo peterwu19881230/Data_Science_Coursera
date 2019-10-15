@@ -1,0 +1,12 @@
+name: capstoneapp
+title:
+username:
+account: peterwu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 662218
+bundleId: 1837738
+url: https://peterwu.shinyapps.io/capstoneapp/
+when: 1548461188.91704
+asMultiple: FALSE
+asStatic: FALSE
